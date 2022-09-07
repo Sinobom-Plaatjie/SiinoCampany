@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SiinoCampany.EmployeePage">
+             x:Class="SiinoCampany.EmployeePage"  NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="New Employee Details!" FontSize="30"  FontAttributes="Bold" Padding="13"/>
+            <Label Text="Please fill in the details" FontSize="20" Padding="5,14,0,0"/>
+            <Label Text="Employee Number : " Padding="5"  />
+            <Entry Text="{Binding EmployeeNum}" />
+            <Label Text="Employed Date :" Padding="5" />
+            <DatePicker x:Name="EmployeePicker"
+                        Date="{Binding EmployedDate}" />
+            <Label Text="Terminated... :" Padding="5" />
+            <DatePicker x:Name="TerminatedPicker"
+                        Date="{Binding Terminated}" />
+            <Button Text="Add Employee" TextColor="Black" Clicked="AddEmployee" CornerRadius="20" BackgroundColor="DarkGray"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

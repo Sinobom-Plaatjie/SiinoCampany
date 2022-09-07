@@ -1,24 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SiinoCampany.MainPage">
+             x:Class="SiinoCampany.MainPage" NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+        <SearchBar Placeholder="Search Employee"
+                   CancelButtonColor="black"
+                   PlaceholderColor="LightGray"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Start" Grid.Row="0" />
+        <Label Text="List of Employees" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+        <Frame BackgroundColor="DarkGray" Padding="7">
+        <StackLayout Padding="280" BackgroundColor="LightGray" >
+            
+            <ScrollView>
+                <ListView x:Name="listView" ItemsSource="{Binding Employees}"
+              Margin="20"
+              ItemSelected="OnListItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
 
+                                <StackLayout Margin="40,0,0,0"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+
+                                    <Label Text="{Binding EmployeeNum}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center" />
+                                    <Label Text="{Binding EmployedDate}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center" />
+                                    <Label Text="{Binding Terminated}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+           
+        </StackLayout>
+        </Frame>
+        <ImageButton Source="add.png" HeightRequest="70" WidthRequest="70" CornerRadius="100" HorizontalOptions="End" Clicked="AddedNewEmployer" />
+    </StackLayout>
 </ContentPage>

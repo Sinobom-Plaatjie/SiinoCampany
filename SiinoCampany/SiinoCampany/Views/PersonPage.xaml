@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SiinoCampany.Views.PersonPage">
+             x:Class="SiinoCampany.Views.PersonPage" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame BackgroundColor="LightGray">
+                <Label Text="Welcome to Sino Campany!" FontSize="26" FontAttributes="Bold" Padding="13"/>
+            </Frame>
+            <Label Text="Please fill in all details" FontSize="20" Padding="5,14,0,0"/>
+            <Label Text="Last Name : " Padding="5"/>
+            <Entry Text="{Binding LastName}" />
+            <Label Text="First Name :" Padding="5" />
+            <Entry Text="{Binding FirstName}" />
+            <Label Text="Birth Date :" Padding="5" />
+            <DatePicker x:Name="BirthDatePicker"
+                        Date="{Binding BirthDate}" />
+            <Button Text="Save" Clicked="Add" CornerRadius="20"/>
+            <Button Text="SKIP" Clicked="SKIP" CornerRadius="20"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
